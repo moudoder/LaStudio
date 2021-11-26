@@ -1,7 +1,18 @@
 $(document).ready(function () {
   new WOW().init();
+
+  $(".scrol-to a").on("click", function (event) {
+    event.preventDefault();
+    
+    let id  = $(this).attr('href'),
+    top = $(id).offset().top;
+    top = top - 50;
+    $('html').animate({scrollTop: top}, 1500);
+    
+  });
+
   $('.header-slider').slick({
-    infinite: false,
+    infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     swipe: true,
